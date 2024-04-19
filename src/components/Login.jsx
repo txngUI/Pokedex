@@ -11,7 +11,7 @@ function Login() {
 
     const handleDelete = (index) => {
         deleteAccount(index)
-        window.location.reload()
+        navigate('/login', { replace: true })
     }
 
     const navigate = useNavigate();
