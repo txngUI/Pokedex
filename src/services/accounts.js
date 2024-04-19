@@ -25,3 +25,24 @@ export function getAccount(id) {
     let accounts = getAccounts();
     return accounts.find(account => account.id === id);
 }
+
+export function addPokemonToPokedex(id, pokemonId, pokemonName, imageUrl) {
+    let accounts = getAccounts();
+    let account = accounts.find(account => account.id === id);
+    account.pokedex.push({pokemonId, pokemonName, imageUrl});
+    window.localStorage.setItem('accounts', JSON.stringify(accounts));
+}
+
+export function removePokemonFromPokedex(id, pokemonId) {
+    let accounts = getAccounts();
+    let account = accounts.find(account => account.id === id);
+    let pokemonsID = account.pokedex.map(pokemon => pokemon.pokemonId);
+    account.pokedex.splice(pokemonsID.indexOf(pokemonId), 1);
+    window.localStorage.setItem('accounts', JSON.stringify(accounts));
+}
+
+export function getPokedex(id) {
+    let accounts = getAccounts();
+    let account = accounts.find(account => account.id === id);
+    return account.pokedex;
+}

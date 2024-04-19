@@ -28,7 +28,7 @@ function Login() {
             </Box>
 
             {getAccounts().map((account, index) => (
-                <Box sx={{marginBottom:1, display:'flex', flexDirection:'row', alignItems:'center'}} fullWidth>
+                <Box key={index} sx={{marginBottom:1, display:'flex', flexDirection:'row', alignItems:'center'}}>
                     <Button key={index} onClick={() => handleLogin(account.id)} fullWidth style={{justifyContent:'left'}}>
                         <Avatar src={`src/assets/${account.avatar}.jpg`} sx={{marginRight:1}} />
                         <Typography style={{margin:1, paddingLeft:20}}> {account.name}</Typography>
